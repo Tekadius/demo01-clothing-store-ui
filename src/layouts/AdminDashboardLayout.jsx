@@ -1,8 +1,12 @@
+import Navbar from "./Navbar";
 
-function AdminDashboardLayout({children}) {
+function AdminDashboardLayout({ children }) {
   return (
-    <div>{children}</div>
-  )
+    <>
+      <Navbar />
+      <div className="bg-[#dee9da]">{children}</div>
+    </>
+  );
 }
 
-export default AdminDashboardLayout
+export default AdminDashboardLayout;
