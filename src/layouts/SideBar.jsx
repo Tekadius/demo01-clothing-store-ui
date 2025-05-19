@@ -4,11 +4,14 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import CategoryIcon from "@mui/icons-material/Category";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import HomeIcon from "@mui/icons-material/Home";
+import { use } from "react";
+import { SidebarContext } from "../Contexts/SidebarContext";
 
 function SideBar() {
+    const {isMobileSidebarOpen} = use(SidebarContext)
   return (
     <div className="md:px-8">
-      <div className="text-center text-[#599a5e] font-bold p-4 md:p-6">
+      <div className={`${isMobileSidebarOpen ? 'hidden md:flex' : ''} text-center justify-center text-[#599a5e] font-bold md:p-5 sticky top-0 left-0 bg-white z-10`}>
         <h1 href="/">
           <p>CSTORE</p>
         </h1>

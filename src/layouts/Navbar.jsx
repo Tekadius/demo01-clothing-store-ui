@@ -4,10 +4,13 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Avatar } from "@mui/material";
+import { use } from "react";
+import { SidebarContext } from "../Contexts/SidebarContext";
 
 function Navbar() {
+  const {toggleMobileSidebar} = use(SidebarContext)
   return (
-    <nav className="flex justify-between items-center p-4 bg-white">
+    <nav className="flex sticky top-0 right-0 justify-between items-center p-4 bg-white z-40">
       <div className="flex md:gap-16 text-[#599a5e] font-bold">
         <a href="/" className="md:hidden">
           <h1>CSTORE</h1>
@@ -18,7 +21,7 @@ function Navbar() {
       </div>
       <div className="flex gap-6 lg:gap-40">
         <div className="hidden md:flex gap-2 items-center">
-          <label for="search-bar" className="cursor-pointer text-[#9c9fa6]">
+          <label htmlFor="search-bar" className="cursor-pointer text-[#9c9fa6]">
             <SearchOutlinedIcon color="action" fontSize="string" />
           </label>
           <input
@@ -50,7 +53,7 @@ function Navbar() {
             <NotificationsNoneOutlinedIcon color="inherit" fontSize="small" />
           </li>
         </ul>
-        <button className="md:hidden cursor-pointer text-[#9c9fa6]">
+        <button className="md:hidden cursor-pointer text-[#9c9fa6]" onClick={toggleMobileSidebar}>
           <MenuOutlinedIcon color="action" />
         </button>
       </div>

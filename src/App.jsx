@@ -1,6 +1,12 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import AdminDashboardLayout from "./layouts/AdminDashboardLayout";
 import AdminDashboard from "./pages/AdminDashboard";
+import { SidebarProvider } from "./Contexts/SidebarContext";
 
 function App() {
   return (
@@ -14,12 +20,14 @@ function App() {
 
 function AdminRoutes() {
   return (
-    <AdminDashboardLayout>
-      <Routes>
-        <Route path="/" element={<Navigate to='dashboard' />}/>
-        <Route path="dashboard" element={<AdminDashboard />}/>
-      </Routes>
-    </AdminDashboardLayout>
+    <SidebarProvider>
+      <AdminDashboardLayout>
+        <Routes>
+          <Route path="/" element={<Navigate to="dashboard" />} />
+          <Route path="dashboard" element={<AdminDashboard />} />
+        </Routes>
+      </AdminDashboardLayout>
+    </SidebarProvider>
   );
 }
 
